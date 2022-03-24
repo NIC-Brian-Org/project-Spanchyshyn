@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="UTF-8" />
+
+  <head>
+    <!--DGL 103 DLU1 - Samantha Panchyshyn - Assignment 6-->
+    <title>Assignment 6</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: sans-serif;
+        margin: 0;
+        color: #191645;
+      }
+
+      header {
+        padding: 15px;
+        width: 800px;
+        margin: auto;
+        display: flex;
+        align-items: center;
+      }
+      h1 {
+        margin-left: 20px;
+      }
+
+      /* start navigation */
+
+      nav {
+        background-color: #f3f3f4;
+      }
+      nav .wrapper {
+        width: 800px;
+        margin: auto;
+      }
+      nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      nav li a {
+        padding: 15px;
+        display: inline-block;
+        text-decoration: none;
+        color: #191645;
+      }
+
+      nav li a:hover {
+        background-color: #43c6ac;
+        color: white;
+      }
+      /* end navigation */
+
+      main {
+        padding: 15px;
+        width: 800px;
+        margin: auto;
+        display: flex;
+      }
+
+      article {
+        flex-grow: 2;
+        flex-basis: 0;
+        margin-right: 30px;
+      }
+      figure {
+        margin: 0;
+      }
+      aside {
+        border: 1px solid #43c6ac;
+        padding: 15px;
+        flex-grow: 1;
+        flex-basis: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      figure img {
+        width: 100%;
+      }
+      footer {
+        background-color: #191645;
+        color: white;
+      }
+      footer .wrapper {
+        width: 800px;
+        margin: auto;
+        padding: 15px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <img
+        src="images/digital-logo.png"
+        alt="Digital Design + Development"
+        width="100"
+      />
+      <h1>Assignment 6</h1>
+    </header>
+
+    <nav>
+      <div class="wrapper">
+        <ul>
+          <li><a href="index.html">Assignment 1</a></li>
+
+          <li><a href="ass2.html">Assignment 2</a></li>
+
+          <li><a href="ass3.html">Assignment 3</a></li>
+
+          <li><a href="ass4.html">Assignment 4</a></li>
+
+          <li><a href="ass5.html">Assignment 5</a></li>
+
+          <li><a href="ass6.html">Assignment 6</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main>
+      <article>
+        <h2>Plants</h2>
+        <figure>
+          <img src="images/moss.jpg" width="auto" height="300" alt=" Moss" />
+          <figcaption>Bryophytes, commonly known as mosses</figcaption>
+        </figure>
+
+        <p>
+          Plants are mainly multicelluar organisms, predominately photosynthetic
+          eukaryotes of the kingdom Plantae. Historically, plants were treated
+          as one of two kingdoms including all living things that were not
+          animals, and all algae and fungi were treated as plants. However, all
+          current definitions of Plantae exclude the fungi and some algae, as
+          well as the prokaryotes (the archaea and bacteria). By one definition,
+          plants form the clade Viridiplantae ( Latin name for "green plants"),
+          a group that includes the flowering plants, conifers and other
+          gymnosperms, ferns and their allies, hornworts, liverworts, mosses,
+          and the green algae, but excludes the red and brown algae.
+        </p>
+      </article>
+
+      <aside>
+        <div>
+          <figure>
+            <img
+              src="images/major-plant-groups.png"
+              width="auto"
+              height="250"
+              alt=" plant groups"
+            />
+          </figure>
+          <h3>Major plant groups</h3>
+          <ul>
+            <li>Bryophytes (mosses)</li>
+            <li>Pteridophytes (ferns)</li>
+            <li>Gymnosperms (conifers)</li>
+            <li>Angiosperms (flowering, seed-bearing plants)</li>
+          </ul>
+        </div>
+
+        <div>Note: Algae and fungi are not classified as plants.</div>
+      </aside>
+    </main>
+    <footer><div class="wrapper">DGL103 HTML/CSS:Assignment 6</div></footer>
+  </body>
+</html>
