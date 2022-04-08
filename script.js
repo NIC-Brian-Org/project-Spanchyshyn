@@ -40,11 +40,16 @@ let guessed = [];
 
 let wordStatus = null;
 
+
 function randomWord() {
   answer =
     plants[
       Math.floor(Math.random() * plants.length)
     ];
+}
+
+function newFunction() {
+  new BugController; { 'minBugs'; 10, 'maxBugs'; 50, 'mouseOver'; 'die'; };
 }
 
 function generateButtons() {
@@ -159,25 +164,73 @@ guessedWord();
 
 let test = document.getElementById("list");
 
-// This handler will be executed only once when the cursor
-// moves over the unordered list
-test.addEventListener("mouseenter", function(event) {
-        // highlight the mouseenter target
-        event.target.style.color = "purple";
+test.addEventListener("mouseover", function (event) {
+  //highlight the mouseover target
+  event.target.style.color = "red";
+}, false);
 
-        // reset the color after a short delay
-        setTimeout(function() {
-            event.target.style.color = "";
-        }, 500);
-    }, false);
-// This handler will be executed every time the cursor
-// is moved over a different list item
-test.addEventListener("mouseover", function(event) {
+test.addEventListener("mouseout", function (event) {
+  // highlight the mouseout target
+  event.target.style.color = "black";
+}, false);
 
-        event.target.style.color = "orange";
+function $(id) { return document.getElementById(id); };
+const media = document.getElementById('audio');
 
+let ui = {
+  play: 'playAudio',
+  audio: 'audio',
+  percentage: 'percentage',
+  seekObj: 'seekObj',
+  currentTime: 'currentTime'
+};
 
-        setTimeout(function() {
-            event.target.style.color = "";
-        }, 500);
-    }, false);
+function togglePlay() {
+  if (media.paused === false) {
+    media.pause();
+    $(ui.play).classList.remove('pause');
+  } else {
+    media.play();
+    $(ui.play).classList.add('pause');
+  }
+}
+
+function calculatePercentPlayed() {
+  let percentage = (media.currentTime / media.duration).toFixed(2) * 100;
+  $(ui.percentage).style.width = `${percentage}%`;
+}
+
+function calculateCurrentValue(currentTime) {
+  const currentMinute = parseInt(currentTime / 60) % 60;
+  const currentSecondsLong = currentTime % 60;
+  const currentSeconds = currentSecondsLong.toFixed();
+  const currentTimeFormatted = `${currentMinute < 10 ? `0${currentMinute}` : currentMinute}:${
+  currentSeconds < 10 ? `0${currentSeconds}` : currentSeconds
+  }`;
+  
+  return currentTimeFormatted;
+}
+
+function initProgressBar() {
+  const currentTime = calculateCurrentValue(media.currentTime);
+  $(ui.currentTime).innerHTML = currentTime;
+  $(ui.seekObj).addEventListener('click', seek);
+
+  media.onended = () => {
+    $(ui.play).classList.remove('pause');
+    $(ui.percentage).style.width = 0;
+    $(ui.currentTime).innerHTML = '00:00';
+  };
+
+  function seek(e) {
+    const percent = e.offsetX / this.offsetWidth;
+    media.currentTime = percent * media.duration;
+  }
+  
+  calculatePercentPlayed();
+}
+
+$(ui.play).addEventListener('click', togglePlay)
+$(ui.audio).addEventListener('timeupdate', initProgressBar);
+
+  
